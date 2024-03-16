@@ -1,0 +1,22 @@
+{
+    "theme_color": "#8936FF",
+    "background_color": "#2EC6FE",
+    "icons": [
+        {
+            "sizes": "512x512",
+            "src": "/icons/icon512_maskable.png",
+            "type": "image/png"
+        },
+        {
+            "sizes": "512x512",
+            "src": "/icons/icon512_rounded.png",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "any",
+    "display": "standalone",
+    "dir": "auto",
+    "lang": "zh-CN",
+    "name": "香饽饽仙贝",
+    "short_name": "仙贝"
+}

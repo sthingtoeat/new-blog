@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: vuepress-theme-reco
-tagline: A simple and beautiful vuepress blog theme.
+heroText: 人类最大的弱点，是自命不凡的幻想。
+tagline: 减少幻想，脚踏实地的努力，立刻去做你感觉焦虑的事情。
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
@@ -14,6 +14,8 @@ tagline: A simple and beautiful vuepress blog theme.
 bgImageStyle: {
   height: '450px'
 }
+
+#以下内容基本无效
 isShowTitleInHome: false
 actionText: Guide
 actionLink: /views/other/guide

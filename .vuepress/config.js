@@ -36,7 +36,7 @@ module.exports = {
         "icon": "reco-message",
         "items": [
           {
-            "text": "vuepress-reco",
+            "text": "开始学习吧",
             "link": "/docs/theme-reco/"
           }
         ]
@@ -56,9 +56,13 @@ module.exports = {
     "sidebar": {
       "/docs/theme-reco/": [
         "",
-        "theme",
-        "plugin",
-        "api"
+        "note1",
+        "note2",
+        "note3",
+        "note4",
+        "note5",
+        "note6",
+        "theme"
       ]
     },
     "type": "blog",
@@ -91,7 +95,7 @@ module.exports = {
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
     "author": "Haruka",
-    "authorAvatar": "/avatar.png",
+    "authorAvatar": "/avatar.jpg",
     "record": "xxxx",
     "startYear": "2017"
   },
