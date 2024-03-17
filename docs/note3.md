@@ -1,6 +1,10 @@
 ---
-title: 自动侧边栏
+title: 空
 date: 2024-3-10
+tags: 
+- vuepress
+categories:
+- 前端
 ---
 
 # vuepress auto sidebar插件

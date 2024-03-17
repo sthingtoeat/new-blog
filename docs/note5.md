@@ -1,6 +1,10 @@
 ---
 title: 部署项目到你的服务器
 date: 2024-3-14
+tags:
+ - Nginx
+categories:
+ - Linux
 ---
 
 ## 准备工作

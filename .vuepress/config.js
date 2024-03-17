@@ -20,6 +20,11 @@ module.exports = {
   ],
   "theme": "reco",
   "themeConfig": {
+    valineConfig: {
+      appId: '8eVxaHwI7dqkulRAoNytxZlm-gzGzoHsz',// your appId
+      appKey: '2IDQByzGD7YtsdHPNO5M9PwE', // your appKey
+    },
+    subSidebar:"auto",    //全局自动子侧边栏
     "nav": [
       {
         "text": "主页",
@@ -34,12 +39,13 @@ module.exports = {
       {
         "text": "学习笔记",
         "icon": "reco-message",
-        "items": [
-          {
-            "text": "开始学习吧",
-            "link": "/docs/theme-reco/"
-          }
-        ]
+        "link": "/docs/"
+        // "items": [
+        //   {
+        //     "text": "开始学习吧",
+        //     "link": "/docs/theme-reco/"
+        //   }
+        // ]
       },
       {
         "text": "GitHub",
@@ -54,7 +60,7 @@ module.exports = {
       }
     ],
     "sidebar": {
-      "/docs/theme-reco/": [
+      "/docs/": [       //文档的左侧边栏
         "",
         "note1",
         "note2",
@@ -62,14 +68,14 @@ module.exports = {
         "note4",
         "note5",
         "note6",
-        "theme"
+        "note7",
       ]
     },
     "type": "blog",
     "blogConfig": {
       "category": {
         "location": 2,
-        "text": "博客"
+        "text": "分类"
       },
       "tag": {
         "location": 3,
@@ -84,10 +90,16 @@ module.exports = {
         "link": "https://www.recoluan.com"
       },
       {
-        "title": "vuepress-theme-reco",
+        "title": "vuepress-theme-reco-2.x",
         "desc": "A simple and beautiful vuepress Blog & Doc theme.",
         "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
         "link": "https://vuepress-theme-reco.recoluan.com"
+      },
+      {
+        "title": "vuepress-theme-reco-1.x",
+        "desc": "A simple and beautiful vuepress Blog & Doc theme.",
+        "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
+        "link": "http://v1.vuepress-reco.recoluan.com/views/1.x/mode.html"
       }
     ],
     "logo": "/logo.png",
@@ -97,7 +109,7 @@ module.exports = {
     "author": "Haruka",
     "authorAvatar": "/avatar.jpg",
     "record": "xxxx",
-    "startYear": "2017"
+    "startYear": "2024"
   },
   "markdown": {
     "lineNumbers": true
