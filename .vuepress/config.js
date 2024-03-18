@@ -1,3 +1,5 @@
+const PluginsConfig = require("./config/PluginsConfig")
+
 module.exports = {
   "title": "Haruka的技术小窝",
   "description": "新主题的博客",
@@ -18,6 +20,7 @@ module.exports = {
       }
     ]
   ],
+  plugins:PluginsConfig,        //添加插件请去PulginsConfig.js文件
   "theme": "reco",
   "themeConfig": {
     valineConfig: {

@@ -9,7 +9,7 @@ categories:
 ## 写在前面
 
 ::: tip 提示
-学习这个，你首先需要学习一下markdown语法，这个相对简单，主要还是用于写文章，你也可以边写边查，花不了太长时间的，但是调用vue组件时需要一些vue的知识。
+学习这个，你首先需要学习一下`markdown`语法，这个相对简单，主要还是用于写文章，你也可以边写边查，花不了太长时间的，但是调用`vue`组件时需要一些vue的知识。
 :::
 
 推荐内容:
@@ -44,20 +44,28 @@ yarn -v                 #
 
 ## 创建项目
 
-1.你需要注册一个[github](https://github.com/)账户，用于管理代码。什么？你居然没有github?咳咳，这位同学，你也不想项目写炸了以后不能回档吧？具体的注册过程这里就不多赘述了。
+### 1.注册github
 
-2.登上github以后，create a new repository,给你这个项目取个名,比如我取名为docs。选择public，不想让人发现你在偷偷打代码的话，你也可以选择Private。然后add .gitignore这里选择Node即可，licenses你可以自己挑，也可以不要，然后创建即可。
+你需要注册一个[github](https://github.com/)账户，用于管理代码。什么？你居然没有github?咳咳，这位同学，你也不想项目写炸了以后不能回档吧？具体的注册过程这里就不多赘述了。
 
-3.点击绿色的Code按钮，选择https或者ssh,复制对应的内容。去你本机想要放项目的位置执行下列指令
+### 2.新建仓库
+
+登上github以后，`create a new repository`,给你这个项目取个名,比如我取名为`docs`。选择`public`，不想让人发现你在偷偷打代码的话，你也可以选择`Private`。然后`add .gitignore`这里选择`Node`即可，`licenses`你可以自己挑，也可以不要，然后创建即可。
+
+### 3.克隆仓库到你的本地
+
+点击绿色的`Code`按钮，选择`https`或者`ssh`,复制对应的内容。去你本机想要放项目的位置执行下列指令
 
 ```sh
 git clone https://github.com/******/****    #这里就是你刚才复制的内容
 ```
 ::: warning 注意
-如果你复制的是https,那么可能会提示你需要验证身份。如何验证身份写在启动服务器之后。
+如果你复制的是`https`,那么可能会提示你需要验证身份。如何验证身份写在启动服务器之后。
 :::
 
-4.克隆完以后，继续输入以下指令安装vuepress
+### 4.安装vuepress
+
+克隆完以后，继续输入以下指令安装vuepress
 ```sh
 yarn add -D vuepress
 ```
@@ -71,16 +79,20 @@ echo '# Hello VuePress' > docs/README.md #创建你的第一篇文章
 mkdir docs #创建docs文件夹
 ```
 
-5.打开你的VScode，打开到你放项目的那个文件夹。你会发现多了一些文件，打开package.json，在"scripts"这里添加下列语句,注意格式与其他语句一致！
+### 5.修改配置
+
+打开你的VScode，打开到你放项目的那个文件夹。你会发现多了一些文件，打开package.json，在"scripts"这里添加下列语句,注意格式与其他语句一致！
 ```json
 "docs:dev": "vuepress dev docs",
 "docs:build": "vuepress build docs"
 ```
-6.启动本地服务器
+### 6.启动本地服务器
 ```sh
 yarn docs:dev   #docs:dev就是上一步所写的语句vuepress dev docs
 ```
 启动完以后，访问[http://localhost:8080](http://localhost:8080)即可看到你的页面
+
+如果出现了`envelop`的报错，说明你的node.js版本过高,这里是[解决方法](/docs/note7.html)
 
 ### 验证身份
 ```sh
@@ -93,7 +105,7 @@ git config --global user.email "xxx@xxx.com"		#设置全局邮箱地址，信息
 ## 图片引用
 
 ::: tip 提示
-在vuepress中静态资源默认在.vuepress/public 中。
+在vuepress中静态资源默认在`.vuepress/public` 中。
 :::
 
 官网的两种引用图片方式
@@ -101,7 +113,7 @@ git config --global user.email "xxx@xxx.com"		#设置全局邮箱地址，信息
 
 ### 方式1
 
-**例如图片位置在.vuepress/public/assets/img**
+例如图片位置在`.vuepress/public/assets/img`
 
 你可以使用下面的代码,
 
@@ -128,7 +140,7 @@ git config --global user.email "xxx@xxx.com"		#设置全局邮箱地址，信息
 
 ## 图片缩放插件medium-zoom
 
-更具体的内容可看官服教程:
+更具体的内容可看官方教程:
 [medium-zoom插件的使用](https://vuepress.vuejs.org/zh/plugin/official/plugin-medium-zoom.html)
 
 ### 1.安装

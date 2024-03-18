@@ -382,8 +382,10 @@ sudo docker cp blog/web/dist a64221036ee1:/usr/share/nginx #sudo docker cp 主�
 
 做完这些，你再试试访问你的服务器IP地址，应该就出来啦~
 
-## 编写一个用于部署的脚步
+## 编写一个用于部署的脚本
 每次重新传文件，这样做太麻烦了，把命令全部写在一个脚本里，就可以一键执行了。
+
+我的脚本只是一种参考，
 
 在和dist文件夹同一目录下面，新建一个`deploy_server.sh`文件,并输入：
 ```sh
