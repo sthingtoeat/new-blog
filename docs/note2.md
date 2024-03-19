@@ -119,11 +119,15 @@ vuepress-reco主题可以设置左侧侧边栏和右侧侧边栏
 module.exports = {
 themeConfig: {
   sidebar: {
-      "/docs/": [       //放文档的文件夹
-        "",             //文件夹里README.md文件
-        "note1",        //文件名，侧边栏会自动获取文件里面的title信息。
-        "note2",
-        "note3",
+      "/docs/": [       //文档的左侧边栏
+        {
+          title:"开始",
+          children:['']
+        },
+        {
+          title:"vuepress",                   //标签的分类标题
+          children:["note1","note2","note3"], //自动获取文件的title字段作为标签
+        },
         "note4",
         "note5",
         "note6",

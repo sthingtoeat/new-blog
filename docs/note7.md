@@ -1,5 +1,5 @@
 ---
-title: Node.js版本过高而报错
+title: Node.js、npm、yarn网络问题
 date: 2024-3-16
 tags:
 - vuepress
@@ -16,3 +16,23 @@ categories:
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build ."
 },
 ```
+
+## npm、yarn网络问题
+
+首先更换各自镜像源
+
+```sh
+#设置淘宝镜像源
+npm config set registry https://registry.npmmirror.com
+#检查是否设置成功
+npm get registry  
+
+#设置淘宝镜像源
+yarn config set registry https://registry.npmmirror.com
+#检查是否设置成功
+yarn config get registry   
+
+```
+
+依然有问题，那么将自己的网络设置，取消ipv6协议即可。
+具体方式请参考[这里](https://blog.csdn.net/m0_63230155/article/details/131786214)
