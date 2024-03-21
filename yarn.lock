@@ -1654,6 +1654,11 @@
   resolved "https://registry.npmmirror.com/@vuepress-reco/vuepress-plugin-back-to-top/-/vuepress-plugin-back-to-top-1.6.13.tgz#dfc31ed7354a9839fd7781532b0ea5722ad73fc0"
   integrity sha512-4KPllVU1ruD4SANuZ0wNQJwpcSctKJmWD4XhdAXOuoNc2kRzM4ic/xnWZ9YJuTlae94w4ocnmm3bZafWuewqRw==
 
+"@vuepress-reco/vuepress-plugin-bulletin-popover@^1.6.16":
+  version "1.6.16"
+  resolved "https://registry.npmmirror.com/@vuepress-reco/vuepress-plugin-bulletin-popover/-/vuepress-plugin-bulletin-popover-1.6.16.tgz#4ec76a2826ab9ab018c7421553fed1aa2c31f02e"
+  integrity sha512-5OMK01joMSRyZ9Hiw4UqutM2kcSirmgFW5CG9tkWs+CnUFVb0f9Ap4myipp6LfMlW6ktw3LdOz1oTsyFw+FrpA==
+
 "@vuepress-reco/vuepress-plugin-comments@^1.6.13":
   version "1.6.13"
   resolved "https://registry.npmmirror.com/@vuepress-reco/vuepress-plugin-comments/-/vuepress-plugin-comments-1.6.13.tgz#71d3291a3cc79085981beb42ac22cfa5191fc5d4"

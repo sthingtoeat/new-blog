@@ -24,6 +24,42 @@ module.exports = [
       "mobileShow": false,
       "position":"left"
     }
-  ]
-
+  ],
+  [
+    '@vuepress/pwa', {
+    serviceWorker: true,
+    updatePopup: {
+        message: "baka!有新的客人来了，还不快给本王去迎接！",
+        buttonText: "这就去！"
+      }
+    }
+  ],
+  ['@vuepress-reco/vuepress-plugin-bulletin-popover', {
+    width: '260px', // 默认 260px
+    title: '公告',
+    body: [
+      {
+        type: 'title',
+        content: '早上好！',
+        style: 'text-aligin: center;'
+      },
+      {
+        type: 'image',
+        src: './assets/img/早上好.jpg'
+      }
+    ],
+    // footer: [
+    //   {
+    //     type: 'button',
+    //     text: '搓头',
+    //     link: '../blogs/cetu/cetu.md'
+    //   } 
+    // ]
+  }],
+  ["vuepress-plugin-nuggets-style-copy", {
+    copyText: "复制代码",
+    tip: {
+        content: "复制成功"
+    }
+  }]
 ]

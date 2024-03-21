@@ -157,8 +157,8 @@ yarn add -D @vuepress/plugin-pwa
     //******************************************************8
   ],
 ```
+在public文件内添加文件`manifest.json`,可以来[这里](https://manifest-gen.netlify.app/)提交`icon`一键生成`manifest.json`等内容
 
-在public文件内添加文件`manifest.json`
 放入以下内容：
 ```json
 {
@@ -186,6 +186,14 @@ yarn add -D @vuepress/plugin-pwa
 ```
 
 因为`pwa`仅在`https`协议里生效，你在本地是看不到`pwa`的效果的，但是你如果部署到了`githubPage`里面，那么就可以看到效果了，要是还是没有反应的话请参考这个[视频](https://www.bilibili.com/video/BV1vb411m7NY?p=9&vd_source=4ef976ed3ceae4718cb64b38d30e09da)
+
+::: warning 注意
+1.PWA插件需要manifest.json文件，注意配置，没反应的话多看看网页检查报的错误。
+
+2.插件区域别忘记加配置
+
+3.生成的icon文件地址需要对应上，记得看注释
+:::
 
 ## 看板娘
 如果你遇到什么问题，去这个地址找找,插件地址：[live2D](https://github.com/yanjun0501/vuepress-plugin-live2d?tab=readme-ov-file)。
@@ -240,4 +248,93 @@ npm i vuepress-plugin-meting -D
         type="playlist"
         mid="2539599584"
         :lrc-type="3"/>
+```
+
+## 公告栏弹窗
+[插件地址](https://vuepress-theme-reco.recoluan.com/views/plugins/bulletinPopover.html)
+
+这样安装
+```sh
+npm i @vuepress-reco/vuepress-plugin-bulletin-popover -D
+
+yarn add @vuepress-reco/vuepress-plugin-bulletin-popover -D
+```
+
+这样使用
+```js
+['@vuepress-reco/vuepress-plugin-bulletin-popover', {
+    width: '260px', // 默认 260px
+    title: '消息提示',
+    body: [
+      {
+        type: 'title',
+        content: '早上好！',
+        style: 'text-aligin: center;'
+      },
+      {
+        type: 'image',
+        src: 'https://i0.hdslb.com/bfs/new_dyn/f778764f00ddc92d2afa4da968c56a95438140818.jpg@1256w_1298h_!web-article-pic.avif'
+      }
+    ],
+    footer: [
+      {
+        type: 'button',
+        text: '打赏',
+        link: '../'
+      } 
+    ]
+  }]
+```
+
+## 代码复制
+[插件地址](https://www.npmjs.com/package/vuepress-plugin-nuggets-style-copy)
+
+这样安装
+```sh
+npm i vuepress-plugin-nuggets-style-copy -D
+
+yarn add vuepress-plugin-nuggets-style-copy -D
+```
+
+这样使用
+```js
+["vuepress-plugin-nuggets-style-copy", {
+      copyText: "复制代码",
+      tip: {
+          content: "复制成功"
+      }
+   }]
+```
+
+## 背景音乐
+[插件地址](https://vuepress-theme-reco.recoluan.com/views/plugins/bgmPlayer.html)
+
+这样安装
+```sh
+npm i @vuepress-reco/vuepress-plugin-bgm-player -D
+
+yarn add @vuepress-reco/vuepress-plugin-bgm-player -D
+```
+
+这样使用
+```js
+[
+    '@vuepress-reco/vuepress-plugin-bgm-player',
+    {
+      audios: [
+        {
+          name: 'LOSER',
+          artist: '米津玄師',
+          url: 'https://www.ytmp3.cn/down/73654.mp3',
+          cover: 'https://p1.music.126.net/qTSIZ27qiFvRoKj-P30BiA==/109951165895951287.jpg?param=200y200'
+        }
+      ] ,
+      // 是否默认缩小
+      autoShrink: true ,
+      // 缩小时缩为哪种模式
+      shrinkMode: 'float',
+      // 悬浮窗样式
+      floatStyle:{ bottom: '10px', 'z-index': '999999' }
+    }
+  ]
 ```

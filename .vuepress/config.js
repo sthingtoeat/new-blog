@@ -4,6 +4,7 @@ module.exports = {
   "title": "Haruka的技术小窝",
   "description": "新主题的博客",
   "dest": "public",
+  "base":"/new-blog/",  //base路径，你的github项目的名称
   "head": [
     [
       "link",
@@ -80,8 +81,8 @@ module.exports = {
           children:['']
         },
         {
-          title:"VuePress",                   //标签的分类标题
-          children:["note1","note2","note3"]
+          title:"VuePress",                   //侧边栏分组标题
+          children:["note1","note2","note3"]  //组员
         },
         {
           title:"Markdown",
@@ -93,7 +94,7 @@ module.exports = {
         },
         {
           title:"报错解决",
-          children:["note6","note7"]
+          children:["note6","note7","note8"]
         },
       ],
     },
