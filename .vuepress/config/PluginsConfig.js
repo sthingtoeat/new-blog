@@ -12,7 +12,7 @@ module.exports = [
   [
     'cursor-effects',
     {
-      size: 3, // 粒子大小
+      size: 2, // 粒子大小
       shape: 'star', // 粒子形状（可选 'star' 和 'circle'）
       zIndex: 999999999,
     },
@@ -35,17 +35,17 @@ module.exports = [
     }
   ],
   ['@vuepress-reco/vuepress-plugin-bulletin-popover', {
-    width: '260px', // 默认 260px
+    width: '200px', // 默认 260px
     title: '公告',
     body: [
       {
         type: 'title',
-        content: '早上好！',
+        content: '早上好！今天又是充满希望的一天！',
         style: 'text-aligin: center;'
       },
       {
         type: 'image',
-        src: './assets/img/早上好.jpg'
+        src: './assets/img/伊蕾娜.jpg'
       }
     ],
     // footer: [

@@ -270,7 +270,7 @@ apt-get remove nginx-full nginx-common
 
 ```bash
 sudo apt update #更新
-sudo apt install nginx #安装
+sudo apt install nginx-full #安装,nginx-full是带有ssl模块的方便未来配置https
 nginx -v #查看版本
 ```
 ::: tip 提示
@@ -296,9 +296,14 @@ vim blog.conf #blog你可以随便取名
 ```
 
 在blog.conf添加以下信息:
+::: tip 提示
+`vim`在普通模式下键入`ggdG`可以删除所有,`:set paste`可进行粘贴否则`vim`会缩进
+
+因为存在中文，我的建议是一行一行粘贴，顺便修改对应的内容，粘贴中文会出现乱码
+:::
 ```sh
 server {
-        listen       8080;                   # 自己设置端口号
+        listen       80;                   # 自己设置端口号
         server_name  localhost;        # 自己服务器的ip地址 ip!
         #access_log  logs/host.access.log  main;
         location / {
@@ -306,23 +311,16 @@ server {
             index  index.html;               # 需要保证dist中有index.html文件
             try_files $uri $uri/ @router;
         }
- 
-        location @router {
-            rewrite ^.*$ /index.html last;            # 解决重新刷新页面，页面空白的问题
-        }
-        
-        location /api/ {   # 和之前开发的时候配代理服务器差不多，需要一个前缀
-            proxy_pass http://xxx.xxx.xxx.xxx:9090/;    # 此处配置代理，把请求的后端域名端口啥的放这里
-        }
         error_page   500 502 503 504  /50x.html;     #错误页面
 }
 ```
-加完以后，:wq退出，再执行下列指令：
+
+加完以后记得修改注释对应的地方，:wq退出，再执行下列指令：
 ```sh
 cd /etc/nginx
 vim nginx.conf 
 ```
-切换为输入模式，一直往下，在下面对应的位置加上这句话,注意要加上分号：
+切换为输入模式，一直**往下**，在另外**两个**`include`**下面**的位置加上这句话,注意要加上分号：
 ```sh
 include /etc/nginx/configs/*.conf;
 ```

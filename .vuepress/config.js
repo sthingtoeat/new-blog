@@ -4,7 +4,7 @@ module.exports = {
   "title": "Haruka的技术小窝",
   "description": "新主题的博客",
   "dest": "public",
-  "base":"/new-blog/",  //base路径，你的github项目的名称
+  // "base":"./",  //base路径，你的github项目的名称
   "head": [
     [
       "link",
@@ -90,11 +90,11 @@ module.exports = {
         },
         {
           title:"项目部署",
-          children:["note5"]
+          children:["note5","note8","note10"]
         },
         {
           title:"报错解决",
-          children:["note6","note7","note8"]
+          children:["note6","note7","note9"]
         },
       ],
     },
