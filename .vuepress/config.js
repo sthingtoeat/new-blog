@@ -4,7 +4,7 @@ module.exports = {
   "title": "Haruka的技术小窝",
   "description": "新主题的博客",
   "dest": "public",
-  // "base":"./",  //base路径，你的github项目的名称
+  // "base":"./",  //base路径，你的github项目的名称，github页面需要添加此行
   "head": [
     [
       "link",
@@ -90,7 +90,7 @@ module.exports = {
         },
         {
           title:"项目部署",
-          children:["note5","note8","note10"]
+          children:["note5","note8","note10"] //最后的note编号为10,11还没有添加
         },
         {
           title:"报错解决",
@@ -135,7 +135,7 @@ module.exports = {
     "lastUpdated": "Last Updated",
     "author": "Haruka",
     "authorAvatar": "/avatar.jpg",
-    "record": "xxxx",
+    "record": "浙ICP备2024075869号",
     "startYear": "2024"
   },
   "markdown": {

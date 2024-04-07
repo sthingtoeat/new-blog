@@ -6,7 +6,7 @@ date: 2024-3-14
 ## Unable to locate package xxx
 
 ::: warning 提示
-这一节是在安装nginx时所遇到的坑，后来发现,nginx不需要使用到yum，但是又不甘心删除这一节内容，所以先留在这里。
+这一节是在安装nginx时所遇到的坑，后来发现yum主要是CentOs系统使用的，而我哦是Ubuntu系统，使用apt-get就可以了，但是又不甘心删除这一节内容，所以先留在这里。
 :::
 
 #### 安装yum包管理器(如果有yum则可跳过这一步)

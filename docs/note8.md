@@ -2,7 +2,7 @@
 title: 部署vuepress项目到github pages
 date: 2024-3-19
 tags:
-- vuepress
+- github
 categories:
 - 前端
 ---
@@ -17,7 +17,7 @@ categories:
 //config.js
 module.exports = {
     "base":"/new-blog/",  //base路径，你的github项目的名称
-    //....
+    //....                //如果你还需要部署到自己的服务器上，记得去掉这里的base然后再部署，否则会css样式丢失
 }
 ```
 然后在和`.vuepress`同一目录下面新建文件`deploy.sh`，然后设置下面的内容：
@@ -43,7 +43,7 @@ git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:sthingtoeat/new-blog.git master:gh-pages
-
+                        #你github用户名/项目名称.git ，后面不动
 cd -
 ```
 在git页面执行`sh deploy.sh`即可。

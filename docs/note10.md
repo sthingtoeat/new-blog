@@ -1,5 +1,8 @@
 ---
 title: 安装SSL证书
+date: 2024-3-20
+tags:
+- nginx
 ---
 
 ## 准备工作
