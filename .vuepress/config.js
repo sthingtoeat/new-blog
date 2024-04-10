@@ -106,7 +106,7 @@ module.exports = {
       },
       "tag": {
         "location": 3,
-        "text": "标签"
+        "text": "博客"
       }
     },
     "friendLink": [
