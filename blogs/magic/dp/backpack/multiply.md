@@ -14,7 +14,7 @@ categories:
 
 [原题连接](https://www.acwing.com/problem/content/4/)
 
-```c++
+```c
 #include<iostream>
 using namespace std;
 
@@ -54,7 +54,7 @@ int main()
 
 有的时候，三重循环的时间复杂度过大了，可能会超时，那么这时候我们就需要进行优化了。
 
-```c++
+```c
 #include<iostream>
 #include<algorithm>
 using namespace std;

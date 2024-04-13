@@ -14,7 +14,7 @@ categories:
 
 ## 自下而上
 
-```c++
+```c
 #include<iostream>						//自下而上，根据分析，不会越过边界
 #include<algorithm>
 using namespace std;
@@ -43,7 +43,7 @@ int main()
 
 ## 自上而下
 
-```c++
+```c
 #include<iostream>					//自上而下，此时需要对边界进行处理，因为可能存在负数
 #include<algorithm>
 using namespace std;

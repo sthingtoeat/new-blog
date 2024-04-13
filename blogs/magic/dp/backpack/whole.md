@@ -14,7 +14,7 @@ categories:
 
 ## 求最大价值
 
-```c++
+```c
 #include<iostream>
 #include<algorithm>
 using namespace std;
@@ -47,7 +47,7 @@ int main()
 
 ## 求方案数量
 
-```c++
+```c
 #include<iostream>
 #include<algorithm>
 using namespace std;

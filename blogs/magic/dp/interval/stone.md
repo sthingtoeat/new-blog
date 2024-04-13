@@ -10,7 +10,7 @@ categories:
 
 [原题链接](https://www.acwing.com/problem/content/284/)
 
-```c++
+```c
 #include<iostream>
 #include<algorithm>
 using namespace std;
