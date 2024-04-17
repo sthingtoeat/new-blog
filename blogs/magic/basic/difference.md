@@ -11,7 +11,7 @@ categories:
 
 [原题链接](https://www.acwing.com/problem/content/description/799/)
 
-::: tips 提示
+::: tip 提示
 给区间`[l, r]`中的每个数加上`c`：`B[l] += c, B[r + 1] -= c`
 :::
 
@@ -52,8 +52,14 @@ int main()
 
 [原题链接](https://www.acwing.com/problem/content/description/800/)
 
-::: tips 提示
-S[x1, y1] += c, S[x2 + 1, y1] -= c, S[x1, y2 + 1] -= c, S[x2 + 1, y2 + 1] += c
+::: tip 提示
+S[x1, y1] += c,
+
+S[x2 + 1, y1] -= c, 
+
+S[x1, y2 + 1] -= c, 
+
+S[x2 + 1, y2 + 1] += c
 :::
 
 ```c

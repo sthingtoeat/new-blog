@@ -90,12 +90,16 @@ module.exports = {
         },
         {
           title:"项目部署",
-          children:["note5","note8","note10"] //最后的note编号为10,11还没有添加
+          children:["note5","note8","note10"] 
         },
         {
           title:"报错解决",
           children:["note6","note7","note9"]
         },
+        {
+          title:"中间件",
+          children:["note12"]//note11还没有添加
+        }
       ],
     },
     "type": "blog",
