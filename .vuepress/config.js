@@ -4,7 +4,7 @@ module.exports = {
   "title": "Haruka的技术小窝",
   "description": "新主题的博客",
   "dest": "public",
-  // "base":"./",  //base路径，你的github项目的名称，github页面需要添加此行
+  // "base":"/new-blog/",  //base路径，你的github项目的名称，github页面需要添加此行
   "head": [
     [
       "link",
@@ -98,7 +98,7 @@ module.exports = {
         },
         {
           title:"中间件",
-          children:["note12"]//note11还没有添加
+          children:["note12","note13","note14"]//note11还没有添加
         }
       ],
     },
