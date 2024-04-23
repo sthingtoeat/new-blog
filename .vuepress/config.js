@@ -81,25 +81,37 @@ module.exports = {
           children:['']
         },
         {
-          title:"VuePress",                   //侧边栏分组标题
+          title:"VuePress-搭建一个博客",                   //侧边栏分组标题
           children:["note1","note2","note3"]  //组员
         },
         {
-          title:"Markdown",
+          title:"Markdownの小知识",
           children:["note4"]
         },
         {
-          title:"项目部署",
+          title:"博客项目部署",
           children:["note5","note8","note10"] 
         },
         {
-          title:"报错解决",
+          title:"博客项目报错解决",
           children:["note6","note7","note9"]
         },
         {
-          title:"中间件",
-          children:["note12","note13","note14"]//note11还没有添加
-        }
+          title:"Vue3",
+          children:[]
+        },
+        {
+          title:"SpringBoot",
+          children:[]
+        },
+        {
+          title:"RabbitMQ",
+          children:["note12","note13","note14","note15"]
+        },
+        {
+          title:"开源项目",
+          children:["note11"]
+        },
       ],
     },
     "type": "blog",

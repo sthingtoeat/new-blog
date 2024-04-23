@@ -61,7 +61,7 @@ rabbitmq-plugins enable rabbitmq_management
 ./rabbitmq-plugins enable rabbitmq_management
 ```
 
-启动完成以后，访问`http:localhost:15672`,有个默认用户，用户名和密码均为`guest`
+启动完成以后，访问[http:localhost:15672](http:localhost:15672),有个默认用户，用户名和密码均为`guest`
 
 能进入则成功。
 

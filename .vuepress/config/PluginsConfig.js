@@ -22,7 +22,7 @@ module.exports = [
     {
       "modelName": "z16",
       "mobileShow": false,
-      "position":"left"
+      "position":"right"
     }
   ],
   [

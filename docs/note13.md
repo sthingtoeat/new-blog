@@ -116,6 +116,10 @@ public class MessageSendController {
 }
 ```
 
+::: warning 注意
+`queue1`其实是路由键，若路由键与队列名称一致，则无妨。路由键可以写成这样`*.com`，这时候，所有以`.com`结尾的名称的队列都会被匹配到，例如`abc.com`、`abcdef.com`。`#`表示一个字符，而`*`表示一个或多个字符。
+:::
+
 ### 4.创建一个队列
 
 输入地址`http:localhost:15672`,用用户名和密码均为`guest`的账户登录`rabbitmq`
