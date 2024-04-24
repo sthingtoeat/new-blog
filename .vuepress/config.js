@@ -98,15 +98,19 @@ module.exports = {
         },
         {
           title:"Vue3",
-          children:[]
+          children:["note18","note19"],
         },
         {
           title:"SpringBoot",
           children:[]
         },
         {
+          title:"WebSocket",
+          children:["note16"]
+        },
+        {
           title:"RabbitMQ",
-          children:["note12","note13","note14","note15"]
+          children:["note12","note13","note14","note15","note17"]
         },
         {
           title:"开源项目",

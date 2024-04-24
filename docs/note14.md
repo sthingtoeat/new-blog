@@ -3,6 +3,8 @@ title: RabbitTemplate的使用、使用注解绑定交换机和队列、手动AC
 date: 2024-4-20
 tags:
 - 消息队列
+categories:
+- 后端
 ---
 
 ::: warning 注意

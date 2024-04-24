@@ -3,6 +3,8 @@ title: 安装rabbitMQ
 date: 2024-4-14
 tags:
 - 消息队列
+categories:
+- 后端
 ---
 
 ## 安装环境

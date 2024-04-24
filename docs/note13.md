@@ -3,6 +3,8 @@ title: 在SpringBoot中使用rabbitMQ(快速上手版)
 date: 2024-4-19
 tags:
 - 消息队列
+categories:
+- 后端
 ---
 ## 工作模式
 
