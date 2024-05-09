@@ -7,7 +7,7 @@ categories:
 - 后端
 ---
 
-## 安装环境
+## Windows下安装环境
 
 ::: tip 提示
 下载太慢的话，可以试试魔法，或者之间去github找源码下载。
@@ -67,3 +67,30 @@ rabbitmq-plugins enable rabbitmq_management
 
 能进入则成功。
 
+
+## Linux环境下
+
+拉一个rabbitmq镜像即可
+
+```sh
+docker pull rabbitmq # 拉取镜像
+
+docker run -d --name Mq -p 15672:15672 -p 5672:5672 rabbitmq #启动容器
+docker ps #查看运行的容器，记得复制对应容器的id
+
+docker exec -it 容器id /bin/bash   # 进入rabbitmq容器
+# 这里不能使用docker attach Mq,因为进不去
+
+rabbitmq-plugins enable rabbitmq_management # 装上管理插件
+
+exit # 退出容器
+
+docker ps #查看运行的容器
+
+```
+
+::: tip
+记得去服务器提供商那里开放15672和5672的端口，不然访问不进去！
+:::
+
+输入xxx.xxx.xxx.xxx:15672即可访问到了

@@ -165,13 +165,14 @@ scp xxx.zip space:blog
 ```sh
 # blog/xxx，的xxx是你解压证书文件后生成的文件夹
 # 把里面的.pem传给容器Id为a64221036ee1的/etc/nginx/cert目录下
+# 容器id也可以换成容器的名字
 
-docker cp blog/xxx/xxx.pem a64221036ee1/etc/nginx/cert
+docker cp blog/xxx/xxx.pem a64221036ee1:/etc/nginx/cert
 # 参考指令: docker cp haruka.website_bundle.pem a64221036ee1:/etc/nginx/cert
 
 
 # 传.key文件
-docker cp blog/xxx/xxx.key a64221036ee1/etc/nginx/cert
+docker cp blog/xxx/xxx.key a64221036ee1:/etc/nginx/cert
 # 参考指令：docker cp haruka.website.key a64221036ee1:/etc/nginx/cert
 ```
 

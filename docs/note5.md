@@ -7,6 +7,10 @@ categories:
  - Linux
 ---
 
+::: warning 注意
+本篇文章只适用于单服务器部署单一项目，如果你想在一台服务器部署多个项目(包括这个博客)那么你在启动容器时，不要将网络设置为host，且需要由宿主机配置nginx进行代理
+:::
+
 ## 准备工作
 
 1.首先你需要一台云服务器，最好是Linux的，可以选择CentOs或者Ubutun
@@ -296,15 +300,10 @@ vim blog.conf #blog你可以随便取名
 ```
 
 在blog.conf添加以下信息:
-::: tip 提示
-`vim`在普通模式下键入`ggdG`可以删除所有,`:set paste`可进行粘贴否则`vim`会缩进
-
-因为存在中文，我的建议是一行一行粘贴，顺便修改对应的内容，粘贴中文会出现乱码
-:::
 ```sh
 server {
         listen       80;                   # 自己设置端口号
-        server_name  localhost;        # 自己服务器的ip地址 ip!
+        server_name  localhost;        # 自己服务器的ip地址，当然也可以是一个域名，即用户输入的地址
         #access_log  logs/host.access.log  main;
         location / {
             root   /usr/share/nginx/dist;        # 这里写项目打包好的dist文件的地址，可以改，这个随意
@@ -314,6 +313,11 @@ server {
         error_page   500 502 503 504  /50x.html;     #错误页面
 }
 ```
+::: tip 提示
+`vim`在普通模式下键入`ggdG`可以删除所有,`:set paste`可进行粘贴否则`vim`会缩进
+
+因为存在中文，我的建议是一行一行粘贴，顺便修改对应的内容，粘贴中文会出现乱码
+:::
 
 加完以后记得修改注释对应的地方，:wq退出，再执行下列指令：
 ```sh

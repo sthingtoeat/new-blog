@@ -89,8 +89,8 @@ module.exports = {
           children:["note4"]
         },
         {
-          title:"博客项目部署",
-          children:["note5","note8","note10"] 
+          title:"项目部署",
+          children:["note5","note8","note10","note23"] 
         },
         {
           title:"博客项目报错解决",
@@ -98,7 +98,7 @@ module.exports = {
         },
         {
           title:"Vue3",
-          children:["note18","note19","note20"],
+          children:["note18","note19","note20","note21"],
         },
         {
           title:"SpringBoot",
@@ -114,7 +114,7 @@ module.exports = {
         },
         {
           title:"开源项目",
-          children:["note11"]
+          children:["note11","note22"]
         },
       ],
     },
