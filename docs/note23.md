@@ -1,5 +1,5 @@
 ---
-title: 单服务器部署多项目
+title: nginx单服务器部署多项目且开始https访问
 date: 2024-5-9
 tags:
 - nginx
@@ -63,11 +63,12 @@ sudo vim blog.conf # 新建blog.conf文件并进入,非root用户请加上sudo
 粘贴完毕请检查一下
 
 ```sh
+# blog.conf
 server {  
     listen          80;  
     server_name     blog.haruka.website;  # 浏览器输入的网址
   
-    location / {  
+    location / {                          # 或者127.0.0.1:80，因为容器在监听80
         proxy_pass http://172.19.0.2:80/; # 填上上面你查到的ip地址
         proxy_set_header Host $host;  
         proxy_set_header X-Real-IP $remote_addr;  
@@ -95,20 +96,10 @@ sudo vim kob.conf
 粘贴如下内容：
 
 ```sh
-server {  
-    listen          80;  
-    server_name     game.haruka.website;  
-  
-    location / {
-        proxy_pass http://172.19.0.3:80/; # 改成查到的ip，80端口不变
-        proxy_set_header Host $host;  
-        proxy_set_header X-Real-IP $remote_addr;  
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  
-        proxy_set_header X-Forwarded-Proto $scheme;  
-        
-    }  
-      
-    # 其他location块...  
+# kob.conf
+server {
+    ... # 内容同上，但是注意修改端口
+
 }
 ```
 
@@ -223,25 +214,162 @@ server {
     server_name  haruka.website; # 记得修改成你自己的域名
     return 301 https://$server_name$request_uri;    # 这里不用改
 }
+```
 
-# 下面是另一个项目的反向代理
+## kob项目
+
+同理，搭建docker环境，由于是java项目，还需要配置jdk、mysql等内容
+
+具体内容请参考贪吃蛇项目部署，这里不再赘述。
+
+### 配置kob容器的nginx
+
+只需要能访问到静态资源即可
+```sh
+server {
+         listen 80;
+         server_name app4536.acapp.acwing.com.cn;
+
+         location / {
+            root /usr/share/nginx/dist;
+            index index.html;
+            try_files $uri $uri/ /index.html;
+        }
+}
+
+```
+然后进行测试即可，通过则记得`reload`一下
+
+
+## kob 项目启用https
+
+同样的道理，启用https不需要在容器内部修改，只需要对宿主机的nginx进行修改即可。
+
+### nginx反向代理api请求举例
+
+由于我们的项目是vue3 + springboot，需要使用后端的一些api，所以nginx不能只代理静态资源，还需要对api进行代理
+
+前端的任何http通信，同时包括websocoket通信，只要和后端进行了通信，那么就需要修改nginx的`location`，给相应的api分配一个端口举个例子：
+
+```js
+//以下是一段js代码，试图向后端发起websocket请求
+const socketUrl = `ws://127.0.0.1:3000/websocket/${store.state.user.token}/`;
+
+socket = new WebSocket(socketUrl);
+
+//由于启用了wss，且使用了一个域名，变成了如下代码，这样便没了端口号
+const socketUrl = `wss://app4536.acapp.acwing.com.cn/${store.state.user.token}/`;
+
+socket = new WebSocket(socketUrl);
+```
+
+因此，我们需要对这个地址配置相应的nginx反向代理，一般通过代理端口来寻找应用，使其能够访问到服务器中的应用。
+
+我们宿主机中的nginx就需要有：
+```sh
+# websocket
+server{
+    ...
+    location /websocket { # 转发到这个端口，依然使用http
+            proxy_pass http://127.0.0.1:3000; # 3000是应用的端口，下面的内容不能少
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_read_timeout  36000s;
+        }
+}
+```
+
+再举一个ajax的http请求的例子：
+```js
+        $.ajax({
+                url: "https://app4536.acapp.acwing.com.cn/api/ranklist/getlist/",
+                data: {
+                    ...
+                },
+                type: "get",
+                success(resp) {
+                    ...
+                },
+                error(resp) {
+                    ...
+                }
+            })
+```
+如果你有个Http请求如上，想要让它能正确访问到服务器的应用，那么就需要在nginx配置相应的内容
+
+```sh
+# http
+server{
+    ...
+    location /api {     #api 便是域名后面的地址，方便解析
+            proxy_pass http://127.0.0.1:3000;
+        }
+}
+```
+
+根据上面的两个例子,我们不难得出，请求需要由nginx进行反向代理才能到对应的应用程序上，且会按照请求中的地址进行反向代理。如果每个请求的第一个地址都不一样但是他们通信的端口一样，那么就需要写很多的location,所以加上了/api就不再需要写多个location了。这应该也是一种规范。
+
+### 修改宿主机中的nginx
+
+回归正题。
+
+在宿主机中，修改`kob.conf`如下
+
+```sh
+# kob.conf
 server {
     listen          80;
-    server_name     game.haruka.website;
+    server_name     app4536.acapp.acwing.com.cn;
 
-    location / {
-        proxy_pass http://172.19.0.3:80/; # blog是容器名或服务名，并且它在80端口上监听
-        proxy_set_header Host $host;
+    rewrite ^(.*)$ https://${server_name}$1 permanent;
+
+}
+server {
+        listen 443 ssl;     # ssl只需要配在宿主机即可，容器内部不需要
+        server_name app4536.acapp.acwing.com.cn;
+        ssl_certificate   kob_cert/acapp.pem;
+        ssl_certificate_key  kob_cert/acapp.key;
+        ssl_session_timeout 5m;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_prefer_server_ciphers on;
+        charset utf-8;
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        client_max_body_size 10M;
+
+    location /api {     # jar包都被跑在3000端口，直接发给他即可
+            proxy_pass http://127.0.0.1:3000;
+        }
+    location /websocket {
+            proxy_pass http://127.0.0.1:3000;       # 如果是websocket还需要添加下面的内容
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_read_timeout  36000s;
+        }
+    location / {                          # 把代理转发给容器
+        proxy_pass http://127.0.0.1:880/; # 容器的80端口被映射到宿主机的880端口
+        proxy_set_header Host $host;        
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
 
     }
-
-    # 其他location块...
 }
 ```
 
+测试通过以后记得刷新，这样就完事了。
 
 
 
