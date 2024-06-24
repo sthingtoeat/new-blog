@@ -85,6 +85,10 @@ module.exports = {
           children:["note1","note2","note3"]  //组员
         },
         {
+          title:"Git小知识",                   //侧边栏分组标题
+          children:["note24"]  //组员
+        },
+        {
           title:"Markdownの小知识",
           children:["note4"]
         },
@@ -93,8 +97,8 @@ module.exports = {
           children:["note5","note8","note10","note23"] 
         },
         {
-          title:"博客项目报错解决",
-          children:["note6","note7","note9"]
+          title:"项目报错解决",
+          children:["note6","note7","note9","note25"]
         },
         {
           title:"Vue3",
@@ -102,11 +106,15 @@ module.exports = {
         },
         {
           title:"SpringBoot",
-          children:[]
+          children:["note27","note28",]
         },
         {
           title:"WebSocket",
           children:["note16"]
+        },
+        {
+          title:"Redis",
+          children:["note26"]
         },
         {
           title:"RabbitMQ",
