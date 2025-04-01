@@ -14,6 +14,40 @@ tags:
 
 ## 注解使用
 
+添加配置类
+```java
+@Configuration
+@EnableAsync
+public class ThreadPoolConfig implements AsyncConfigurer {
+    /**
+     * 项目共用线程池
+     */
+    public static final String MALLCHAT_EXECUTOR = "mallchatExecutor";
+    /**
+     * websocket通信线程池
+     */
+    public static final String WS_EXECUTOR = "websocketExecutor";
+
+    @Override
+    public Executor getAsyncExecutor() {
+        return mallchatExecutor();
+    }
+
+    @Bean(MALLCHAT_EXECUTOR)
+    @Primary
+    public ThreadPoolTaskExecutor mallchatExecutor() {
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(10);   //核心线程数
+        executor.setMaxPoolSize(10);    //最大线程数
+        executor.setQueueCapacity(200); //队列容量
+        executor.setThreadNamePrefix("mallchat-executor-");//给线程添加名称前缀，调试的时候有帮助
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());//满了调用线程执行，认为重要任务，满了的时候会让调用方自己去执行，因为线程池已经满了
+        executor.initialize();
+        return executor;
+    }
+}
+```
+然后，准备测试一下
 ```java
     @Async
     public void renewalTokenIfNecessary(String token) {

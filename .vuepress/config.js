@@ -124,6 +124,12 @@ module.exports = {
           title:"开源项目",
           children:["note11","note22"]
         },
+        {
+          title:"八股文",
+          children:[
+            "/docs/eight/eight1.md",
+        ]
+        },
       ],
     },
     "type": "blog",
