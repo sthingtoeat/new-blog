@@ -11,7 +11,7 @@ categories:
 
 首先，为了让config.js文件看起来更清楚，请新建一个文件专门用户安放插件配置。
 
-::: warning 提示
+::: tip 提示
 如果`npm`下不下来,可能是npm,可以使用`yarn`,一旦使用了其中一个，请一直使用它，不能混着用，不然会导致奇怪的问题。
 
 `npm config set registry https://registry.npmmirror.com`更换这个淘宝的镜像，会比较快。

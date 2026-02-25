@@ -11,7 +11,7 @@ vuepress已经具备了Prism,你可以这样来使用
 [vuepress中使用Prism](https://vuepress.vuejs.org/zh/guide/markdown.html#%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE)
 
 引用代码块的时候
-在```后面加上对应的语言类型即可
+在```后面加上对应的语言类型即可，但是c++好像不会有彩色高亮，只能用c
 
 **输入**
 ~~~
@@ -48,7 +48,7 @@ export default {
 :::
 
 ::: danger STOP
-危险区域，禁止通行
+危险区域，禁止通行  danger后面还可以加上内容作为这个区域的小标题
 :::
 
 ```
@@ -68,9 +68,12 @@ export default {
 :::
 
 ::: danger STOP
-危险区域，禁止通行
+危险区域，禁止通行，danger后面还可以加上内容作为这个区域的小标题
 :::
 
+::: tip 提示
+2333333333
+:::
 ## emoji
 
 例如，在md文件里面这样输入
